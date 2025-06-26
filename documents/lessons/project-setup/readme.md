@@ -54,3 +54,10 @@ starvation.
 - Taking time to document everything. More documentation than code probably. Feel free to sketch and write so I
 can provide better feedback to myself. If I know one thing — my memory ain't good. Use writing as physical memory.
 Just like computers it's slower than RAM. But its more persistent. 
+- Write tests. What am I becoming... I don't want to fall in deep holes of failure. It will provide the dopamine
+hit to see some green. More importantly, it will be harder to create a disconnect between input and output. I can
+attack problems, which will be hard, more isolated.
+- Choosing fun goals, where goals are a bigger and broader term compared to milepoints. 
+- 1/4 of allocated time should be refactoring older code. Allows me to review myself, and both enjoy the progress 
+I've made, and also reflect on previous code.
+

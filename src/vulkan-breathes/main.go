@@ -54,11 +54,12 @@ func initWindow() error {
 }
 
 func loop() {
-	for ; window.ShouldClose(); {
+	for ; !window.ShouldClose(); {
 		glfw.PollEvents()
 	}
 }
 
 func clean() {
-
+	window.Destroy()
+	glfw.Terminate()
 }

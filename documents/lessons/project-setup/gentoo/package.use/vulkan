@@ -1,0 +1,22 @@
+media-libs/vulkan-loader layers
+
+dev-util/vulkan-tools cube
+
+# required by media-libs/vulkan-loader-1.4.313.0::gentoo[layers]
+# required by dev-util/vulkan-tools-1.4.313.0::gentoo
+# required by @selected
+# required by @world (argument)
+>=media-libs/vulkan-layers-1.4.313.0 abi_x86_32
+# required by media-libs/vulkan-layers-1.4.313.0::gentoo
+# required by media-libs/vulkan-loader-1.4.313.0::gentoo[layers]
+# required by dev-util/vulkan-tools-1.4.313.0::gentoo
+# required by @selected
+# required by @world (argument)
+>=dev-util/glslang-1.4.313.0 abi_x86_32
+# required by media-libs/vulkan-layers-1.4.313.0::gentoo
+# required by media-libs/vulkan-loader-1.4.313.0::gentoo[layers]
+# required by dev-util/vulkan-tools-1.4.313.0::gentoo
+# required by @selected
+# required by @world (argument)
+>=dev-util/vulkan-utility-libraries-1.4.313.0 abi_x86_32
+

@@ -26,6 +26,10 @@ TODO https://github.com/KhronosGroup/Vulkan-Loader/blob/main/docs/LoaderInterfac
 ## Dispatch Tables
 TODO https://github.com/KhronosGroup/Vulkan-Loader/blob/main/docs/LoaderInterfaceArchitecture.md#dispatch-tables-and-call-chains
 
+## Extensions
+A library that extends the functionality of vulkan. Recognized by a postfix,
+like `VkSurfaceKHR`.
+
 ## Groups
 ### Instance-specific
 A Vulkan instance `VKInstance` is a high-level construct used to provide vulkan system-level information and

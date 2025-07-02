@@ -1,4 +1,7 @@
 # Vulkan
+
+![](assets/vulkan-architecture.png)
+
 The vulkan API can be organized into two groups:
 - Instance-specific
 - Device-specific

@@ -14,6 +14,7 @@ const (
 )
 
 var window *glfw.Window
+var instance vk.Instance
 
 func main() {
 	setup();
@@ -24,17 +25,13 @@ func main() {
 func setup() {
 	err := initWindow();
 	if err != nil {
-		log.Fatal("failed to initialize window:", err)
+		log.Fatal("failed to initialize window: ", err)
 	}
 
-	vk.SetGetInstanceProcAddr(glfw.GetVulkanGetInstanceProcAddress())
-
-	err = vk.Init()
+	err = initVulkan();
 	if err != nil {
-		log.Fatal("failed to initialize vulkan:", err)
+		log.Fatal("failed to initialize vulkan: ", err)
 	}
-
-	fmt.Println("Vulkan initialized")
 }
 
 func initWindow() error {
@@ -52,6 +49,7 @@ func initWindow() error {
 
 	return nil
 }
+
 
 func loop() {
 	for ; !window.ShouldClose(); {

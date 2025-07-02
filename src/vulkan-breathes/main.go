@@ -8,24 +8,57 @@ import (
 	vk "github.com/vulkan-go/vulkan"
 )
 
+const (
+	windowWidth = 800
+	windowHeight = 600
+)
+
+var window *glfw.Window
+
 func main() {
-	err := glfw.Init()
+	setup();
+	loop();
+	clean();
+}
+
+func setup() {
+	err := initWindow();
 	if err != nil {
-		log.Fatal("failed to initialize GLFW:", err)
+		log.Fatal("failed to initialize window:", err)
 	}
-	defer glfw.Terminate()
 
-
-	// Further research required! 
-	// This is our glfw passing pointers for the "proc", process?
-	// So that vulkan knows where to bla bla to (define bla bla).
 	vk.SetGetInstanceProcAddr(glfw.GetVulkanGetInstanceProcAddress())
 
 	err = vk.Init()
 	if err != nil {
-		log.Fatal("failed to initialize vulkan", err)
+		log.Fatal("failed to initialize vulkan:", err)
 	}
 
 	fmt.Println("Vulkan initialized")
 }
 
+func initWindow() error {
+	err := glfw.Init()
+	if err != nil {
+		return fmt.Errorf("failed to initialize GLFW: %w", err)
+	}
+
+	glfw.WindowHint(glfw.ClientAPI, glfw.NoAPI)
+	glfw.WindowHint(glfw.Resizable, glfw.False)
+	window, err = glfw.CreateWindow(windowWidth, windowHeight, "Vulkan", nil, nil)
+	if err != nil {
+		return fmt.Errorf("failed to create window: %w", err)
+	}
+
+	return nil
+}
+
+func loop() {
+	for ; window.ShouldClose(); {
+		glfw.PollEvents()
+	}
+}
+
+func clean() {
+
+}

@@ -1,55 +1,20 @@
 package main
 
 import (
-	"fmt"
+	"example/vulkan-breathes/app"
 	"log"
-
-	"github.com/go-gl/glfw/v3.3/glfw"
 )
 
-const (
-	windowWidth = 800
-	windowHeight = 600
-)
-
-var window *glfw.Window
 
 func main() {
-	setup();
-	loop();
-	clean();
-}
+	_app := app.New()
 
-func setup() {
-	err := initWindow()
+	defer _app.Clean()
+
+	err := _app.Setup()
 	if err != nil {
-		log.Fatal("failed to initialize window: ", err)
+		log.Fatal(err)
 	}
 
-	err = initVulkan()
-	if err != nil {
-		log.Fatal("failed to initialize vulkan: ", err)
-	}
-
-	devices, err := getPhysicalDevices()
-	if err != nil {
-		log.Fatal("failed to get physical devices: ", err)
-	}
-	fmt.Println(devices)
-	if len(devices) == 0 {
-		log.Fatal("no physical devices available")
-	}
-	fmt.Printf("%+v\n", getPhysicalDeviceProperties(devices[0]))
-}
-
-func loop() {
-	for ; !window.ShouldClose(); {
-		glfw.PollEvents()
-	}
-}
-
-func clean() {
-	destroyVulkan()
-	window.Destroy()
-	glfw.Terminate()
+	_app.Loop()
 }

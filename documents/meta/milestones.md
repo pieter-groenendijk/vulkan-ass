@@ -18,7 +18,7 @@ know they exist_
 ---
 
 ## ✅ [ ] 3. A Surface to Stand On
-- [ ] Create a Vulkan surface from the window.
+- [x] Create a Vulkan surface from the window.
 - [ ] Query supported surface formats and presentation modes.
 - [ ] Understand what a surface is (bridge between window and Vulkan).
 - 🔍 *Proof:* You print supported formats; no errors thrown.

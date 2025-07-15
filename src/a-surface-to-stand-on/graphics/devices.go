@@ -1,11 +1,13 @@
-package main
+package graphics
 
 import (
 	"fmt"
+
+	"github.com/vulkan-go/vulkan"
 	vk "github.com/vulkan-go/vulkan"
 )
 
-func getPhysicalDevices() ([]vk.PhysicalDevice, error) {
+func GetPhysicalDevices(instance vulkan.Instance) ([]vk.PhysicalDevice, error) {
 	var amount uint32
 
 	// if `pPhysicalDevices == nil` then function queries the available amount, and replaces `pPhysicalDeviceCount`
@@ -25,7 +27,7 @@ func getPhysicalDevices() ([]vk.PhysicalDevice, error) {
 	return devices, nil
 }
 
-func getPhysicalDeviceProperties(device vk.PhysicalDevice) (*vk.PhysicalDeviceProperties) {
+func GetPhysicalDeviceProperties(device vk.PhysicalDevice) (*vk.PhysicalDeviceProperties) {
 	props := new(vk.PhysicalDeviceProperties)
 	vk.GetPhysicalDeviceProperties(device, props)
 

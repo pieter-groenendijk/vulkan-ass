@@ -5,7 +5,6 @@ import (
 	"log"
 
 	"github.com/go-gl/glfw/v3.3/glfw"
-	vk "github.com/vulkan-go/vulkan"
 )
 
 const (
@@ -14,7 +13,6 @@ const (
 )
 
 var window *glfw.Window
-var instance vk.Instance
 
 func main() {
 	setup();
@@ -23,15 +21,21 @@ func main() {
 }
 
 func setup() {
-	err := initWindow();
+	err := initWindow()
 	if err != nil {
 		log.Fatal("failed to initialize window: ", err)
 	}
 
-	err = initVulkan();
+	err = initVulkan()
 	if err != nil {
 		log.Fatal("failed to initialize vulkan: ", err)
 	}
+
+	devices, err := getPhysicalDevices()
+	if err != nil {
+		log.Fatal("failed to get physical devices: ", err)
+	}
+	fmt.Println(devices)
 }
 
 func initWindow() error {
@@ -58,6 +62,7 @@ func loop() {
 }
 
 func clean() {
+	destroyVulkan()
 	window.Destroy()
 	glfw.Terminate()
 }

@@ -42,22 +42,6 @@ func setup() {
 	fmt.Printf("%+v\n", getPhysicalDeviceProperties(devices[0]))
 }
 
-func initWindow() error {
-	err := glfw.Init()
-	if err != nil {
-		return fmt.Errorf("failed to initialize GLFW: %w", err)
-	}
-
-	glfw.WindowHint(glfw.ClientAPI, glfw.NoAPI)
-	window, err = glfw.CreateWindow(windowWidth, windowHeight, "Vulkan", nil, nil)
-	if err != nil {
-		return fmt.Errorf("failed to create window: %w", err)
-	}
-
-	return nil
-}
-
-
 func loop() {
 	for ; !window.ShouldClose(); {
 		glfw.PollEvents()

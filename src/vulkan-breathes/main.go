@@ -49,7 +49,6 @@ func initWindow() error {
 	}
 
 	glfw.WindowHint(glfw.ClientAPI, glfw.NoAPI)
-	glfw.WindowHint(glfw.Resizable, glfw.False)
 	window, err = glfw.CreateWindow(windowWidth, windowHeight, "Vulkan", nil, nil)
 	if err != nil {
 		return fmt.Errorf("failed to create window: %w", err)

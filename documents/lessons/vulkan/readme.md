@@ -11,7 +11,7 @@ Extensions to vulkan are similarly associated on these groups. "Instance extensi
 
 ## Loader
 A vulkan application interfaces directly with the [_Loader_](https://github.com/KhronosGroup/Vulkan-Loader/blob/main/docs/LoaderInterfaceArchitecture.md).
-Then, through various layers inside vulkan it eventually deligates it work to a driver, which in turn controls one
+Then, through various layers inside vulkan it eventually deligates work to a driver, which in turn controls one
 or more physical devices.
 
 ## Object Model

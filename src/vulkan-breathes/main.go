@@ -36,6 +36,10 @@ func setup() {
 		log.Fatal("failed to get physical devices: ", err)
 	}
 	fmt.Println(devices)
+	if len(devices) == 0 {
+		log.Fatal("no physical devices available")
+	}
+	fmt.Printf("%+v\n", getPhysicalDeviceProperties(devices[0]))
 }
 
 func initWindow() error {
